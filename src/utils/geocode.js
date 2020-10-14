@@ -5,7 +5,7 @@ const geocode = (address, callback) => {
     address
   )}.json?access_token=${process.env.MAPBOX_API_KEY}`;
 
-  request({ url, json: true }, (error, { body }) => {
+  request({ url, json: true }, (error, { body } = {}) => {
     if (error) {
       callback("Unable to connect to location services!", undefined);
     } else if (body.features.length === 0) {
